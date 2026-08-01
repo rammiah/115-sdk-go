@@ -119,7 +119,7 @@ func (t *OfflineTask) GetStatus() string {
 func (c *Client) OfflineTaskList(ctx context.Context, page int64) (*OfflineTaskListResp, error) {
 	var resp OfflineTaskListResp
 
-	_, err := c.AuthRequest(ctx, ApiOfflineList, http.MethodGet, &resp, ReqWithForm(Form{
+	_, err := c.AuthRequest(ctx, ApiOfflineList, http.MethodGet, &resp, ReqWithQuery(Form{
 		"page": strconv.FormatInt(page, 10),
 	}))
 	return &resp, err
